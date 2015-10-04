@@ -1,0 +1,33 @@
+---
+title: "ABTestingNotes"
+author: "Jas Sohi"
+date: "October 3, 2015"
+output: html_document
+---
+**Funnel
+-Homepage
+-number of clicks/number of page views - click through rate
+-unique visitors who click/uniquer visitors to page
+-click through probability
+-RATE -> USABILITY
+-PROBABILITY -> IMPACT
+```{r}
+visitors <- 1000
+unique.clicks <- 100
+ctp <- unique.clicks/visitors
+ctp
+N <- 20
+X <- 16
+phat <- X/N
+p <- phat
+mean <- p
+std.dev <- sqrt((p*(1-p))/N)
+
+If we have a confidence interval of 95%, this means if we repeated the experiment several times we would expect the interval we construct around our sample mean to contain the true population mean 95% of the time.
+```
+binomial 
+*1. 2 types of outcomes
+*2. Independent events
+*3. Identical distribution - p same for all
+
+
