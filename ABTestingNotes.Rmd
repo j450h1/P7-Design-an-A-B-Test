@@ -16,15 +16,42 @@ visitors <- 1000
 unique.clicks <- 100
 ctp <- unique.clicks/visitors
 ctp
-N <- 20
-X <- 16
-phat <- X/N
-p <- phat
-mean <- p
-std.dev <- sqrt((p*(1-p))/N)
+N <- 1000
+X <- 100
+p <- X/N
+SE <- sqrt((p*(1-p))/N)
+z <- qnorm(0.975) #95% CI
+m <- z * SE
+CIright <- p + m
+CIleft <- p - m
+#-------------------
+N <- 2000
+X <- 300
+p <- X/N
+SE <- sqrt((p*(1-p))/N)
+z <- qnorm(0.995) #99% CI
+m <- z * SE
+CIright <- p + m
+CIleft <- p - m
+#---
+Ncont <- 1
+Nexp <- 1
+Xcont <- 1
+Xexp <- 1
+Pexp <- Xexp/Nexp
+Pcont <- Xcont/Ncont
+d <- Pexp - Pcont
+Ppool <- (Xcont + Xexp)/ (Ncont + Nexp)
+SEpool <- sqrt(Ppool*(1-Ppool)*((1/Ncont)+(1/Nexp)))
+
+
+```
+To use normal: check N*phat > 5
+and N(1-phat)>5
+
 
 If we have a confidence interval of 95%, this means if we repeated the experiment several times we would expect the interval we construct around our sample mean to contain the true population mean 95% of the time.
-```
+
 binomial 
 *1. 2 types of outcomes
 *2. Independent events
